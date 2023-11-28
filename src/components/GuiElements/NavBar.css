@@ -1,0 +1,31 @@
+.navBarBox {
+    position:fixed;
+    background-color: #dadada;
+    color: white;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 999;
+}
+.bottomBorder{
+    border-bottom: #3a3a3a solid 2px;
+    margin-top: 2px;
+    
+    filter: blur(.5px);
+    width: 100vw;
+    
+}
+.navPositioning {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.navOrder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
