@@ -2,11 +2,11 @@
 import { useRef, useEffect, useState } from "react";
 
 
-export default function DragnDrop({ children }) {
+export default function DragnDrop({pos, x,y, children }) {
     const dragRef = useRef(null);
 
 
-    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [position, setPosition] = useState({ x: pos.x || x, y: pos.y || y });
     const [dragging, setDragging] = useState(false);
     const [offset, setOffset] = useState({ x: 0, y: 0 });
 
