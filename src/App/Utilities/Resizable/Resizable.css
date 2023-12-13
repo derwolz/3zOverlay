@@ -1,0 +1,19 @@
+.ResizableBox {
+    border:solid;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+
+}
+.resizable-anchor {
+    width:2px;
+    height:2px;
+    border: solid 3px red;
+}.resizable-anchor:hover{
+
+}
+.BoxRow {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+}

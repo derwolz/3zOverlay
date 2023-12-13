@@ -1,7 +1,7 @@
 import './PropertiesMenu.css';
-import { Properties } from '../components/RightSideBar/properties';
+import { Properties } from './Properties/properties';
 //import { textdisplay } from '../components/RightSideBar/templates';
-import DragnDrop from '../DragnDrop';
+import DragnDrop from '../../Utilities/DragnDrop.js/DragnDrop';
 export default function PropertiesMenu({pos,element={}}){
 
     return (

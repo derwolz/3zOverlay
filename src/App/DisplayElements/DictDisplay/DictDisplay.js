@@ -1,4 +1,4 @@
-import DragnDrop from "../../../DragnDrop";
+import DragnDrop from "../../UXComponents/DragnDrop.js/DragnDrop";
 import TextDisplay from "../TextDisplay/TextDisplay";
 import { useEffect, useState } from "react";
 // make draw lines to children

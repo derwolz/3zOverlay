@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import DragnDrop from './DragnDrop';
+import DragnDrop from './Utilities/DragnDrop.js/DragnDrop';
 import './WorkBench.css'
-import AddMenu from './GuiElements/AddMenu';
-import PropertiesMenu from './GuiElements/PropertiesMenu';
-import { templates } from './components/RightSideBar/templates';
-import { DisplayElements } from './components/DisplayComponents/DisplayElements';
+import AddMenu from './UXComponents/AddPanel/AddMenu';
+import PropertiesMenu from './UXComponents/PropertyPanel/PropertiesMenu';
+import { templates } from './DisplayElements/templates';
+import { DisplayElements } from './DisplayElements/DisplayElements';
 
 export function WorkBench(){
     const [mousePos, setMousePos] = useState({x:0, y:0})

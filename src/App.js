@@ -1,11 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
-import DragnDrop from './components/DragnDrop';
-import Navbar from './components/GuiElements/NavBar';
-import PropertiesMenu from './components/GuiElements/PropertiesMenu';
-import AddMenu from './components/GuiElements/AddMenu';
-import { guiButtonElements } from './components/GuiElements/GuiButtons/guiButtonElements';
-import { WorkBench } from './components/WorkBench.js';
+import Navbar from './App/NavBar';
+import { WorkBench } from './App/WorkBench.js';
 function App() {
   return (
     <div className="">
