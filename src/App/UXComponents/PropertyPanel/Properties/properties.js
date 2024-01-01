@@ -9,7 +9,7 @@ export function Properties({ selectedElement={gui:''} }) {
         'TextInput': TextInput,
         'DropDown': DropDown,
         'ColorSelector': ColorSelector,
-        'NumberInput': NumberInput
+        'NumberInput': NumberInput,
     };
 
     const renderComponent = (item, key) => {

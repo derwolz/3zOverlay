@@ -1,0 +1,8 @@
+.imagePlaceHolderContainer{
+    height: 50px;
+    width: 50px;
+    background-color: gray;
+}
+.drugOver{
+    background-color: blue;
+}

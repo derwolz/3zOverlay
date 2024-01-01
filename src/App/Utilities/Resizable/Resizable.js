@@ -1,23 +1,66 @@
-import { useState } from "react";
-import "./Resizable.css";
-export default function Resizable({ children }) {
-    const [rect, setRect] = useState(null);
-    
-    return (
-        <div className={"ResizableBox"} style={rect}>
-            <div className={"BoxRow"}>
-                <span className={"BorderAnchor"} />
-                <span className={"BorderAnchor"} />
-                <span className={"BorderAnchor"} />
-            </div>
-            <div className={"BoxRow"}>
-                {children}
-            </div>
-            <div className={"BoxRow"}>
-                <span className={"BorderAnchor"} />
-                <span className={"BorderAnchor"} />
-                <span className={"BorderAnchor"} />
-            </div>
-        </div>
-    )
-}
+import React, { useCallback, useState, useEffect} from 'react';
+
+const Resizable = ({ children, showAnchor=true, startSize }) => {
+  const [size, setSize] = useState(startSize);
+  const [isResizing, setIsResizing] = useState(false);
+
+  const handleMouseMove = useCallback((e) => {
+    console.log(isResizing);
+
+    const newWidth = size.width + e.movementX;
+    const newHeight = size.height + e.movementY;
+    setSize({ width: newWidth, height: newHeight });
+  }, [isResizing, size]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsResizing(false);
+  }, [handleMouseMove]);
+
+  const handleMouseDown = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsResizing(true);
+  }, [handleMouseMove, handleMouseUp]);
+
+  useEffect(() => {
+    if (isResizing) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+    } else {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isResizing, handleMouseMove, handleMouseUp]);
+  return (
+    <div
+      style={{
+        width: `${size.width}px`,
+        height: `${size.height}px`,
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {children}
+      <div 
+        style={{ position: 'absolute', bottom: -4, right: 0, cursor:'crosshair', display:showAnchor?'block':'none' }} 
+        onMouseDown={handleMouseDown} 
+      >
+<svg width="30" height="30" viewBox="0 0 20 20">
+<path d="M34 0 L0 34" stroke="#bbb" strokeWidth="10"/>
+
+
+
+  
+</svg>
+
+      </div>
+    </div>
+  );
+};
+
+export default Resizable;

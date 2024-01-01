@@ -33,7 +33,7 @@ const imagedisplay = {
     parentId : '',
 
     gui : {
-        settings: {type: 'TextInput', value: ''},
+        settings: {url: {type: 'TextInput', label:'url', value: 'hello there'}},
         css: cssGroup,
     }
 }

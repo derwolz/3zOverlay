@@ -4,7 +4,7 @@ import Navbar from './App/NavBar';
 import { WorkBench } from './App/WorkBench.js';
 function App() {
   return (
-    <div className="">
+    <div className="" onDrop={(e)=>{e.stopPropagation(); e.preventDefault();}}>
       <header className="" style={{backgroundColor:'black', height:'100vh'}}>
       <Navbar/>
       <WorkBench/>

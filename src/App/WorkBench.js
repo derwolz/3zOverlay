@@ -12,6 +12,7 @@ export function WorkBench(){
     const [showContextMenu, setShowContextMenu] = useState(null);
     const [showPropertiesMenu, setPropertiesMenu] = useState(null);
     const [elements, setElements] = useState([]);
+    const [selectedElement, setSelectedElement] = useState(null);
     function handleRightClick(e){
         e.preventDefault();
         setShowContextMenu(!showContextMenu);
@@ -23,8 +24,11 @@ export function WorkBench(){
     function handleCloseMenu(){
         setShowContextMenu(false);
     }
-    function handleClick(e){
-        setPropertiesMenu(!showPropertiesMenu);
+    function selectElement(e, element){
+        if (element) {e.stopPropagation();}
+        console.log(element);
+        setSelectedElement(element);
+        
     }
     function addElement(type){
 
@@ -36,16 +40,17 @@ export function WorkBench(){
 
     }
     return(
-        <div className="workbench-body" onContextMenu={handleRightClick} onMouseMove={handleMouseMove} onClick={handleClick}>
+        <div className="workbench-body" onContextMenu={handleRightClick} onMouseMove={handleMouseMove} onClick={(e)=>selectElement(e,null)} onDrop={(e)=>{e.stopPropagation();;e.preventDefault()}} onDragOver={(e)=>{e.preventDefault()}}>
             
             {elements.map(({Gui, element}, id)=>{
-                console.log('gui',Gui, element);
-                return(
+                return(<div key={id} onClick={(e)=>selectElement(e,element)}>
                     <Gui pos={contextPos} element={element}/>
+                    </div>
                 );
             })}
             {showContextMenu ? <AddMenu pos={mousePos} handleCloseMenu={handleCloseMenu} handleAddElement={(element)=>addElement(element)}/> : null}
-            {showPropertiesMenu ? <PropertiesMenu pos={mousePos} element={{}}/>: null}
+            {selectedElement ? <PropertiesMenu pos={mousePos} element={selectedElement}/>: null}
+            
         </div>
     )
 }
