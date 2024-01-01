@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react"
-import { guiButtonElements } from "../../GuiElements/GuiButtons/guiButtonElements"
-import { TextInput } from "./components/TextInput"
-import { DropDown } from './components/DropDown'
-import { ColorSelector } from './components/ColorSelector'
-import { NumberInput} from './components/NumberInput.js';
+import { guiButtonElements } from "../../GuiButtons/guiButtonElements.js"
+import { TextInput } from "../UIPropertyComponents/TextInput.js"
+import { DropDown } from '../UIPropertyComponents/DropDown.js'
+import { ColorSelector } from '../UIPropertyComponents/ColorSelector.js'
+import { NumberInput} from '../UIPropertyComponents/NumberInput.js';
 export function Properties({ selectedElement={gui:''} }) {
     const components = {
         'TextInput': TextInput,
         'DropDown': DropDown,
         'ColorSelector': ColorSelector,
-        'NumberInput': NumberInput
+        'NumberInput': NumberInput,
     };
 
     const renderComponent = (item, key) => {

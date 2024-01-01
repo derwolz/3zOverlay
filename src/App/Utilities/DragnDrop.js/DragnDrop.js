@@ -1,8 +1,8 @@
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, forwardRef, useImperativeHandle } from "react";
 
 
-export default function DragnDrop({pos, x,y, children }) {
+const DragnDrop = forwardRef(({pos, x,y, children, createOffset}, ref)=> {
     const dragRef = useRef(null);
 
 
@@ -33,6 +33,14 @@ export default function DragnDrop({pos, x,y, children }) {
         setDragging(false);
     };
 
+    useImperativeHandle(ref, ()=>({
+        shiftPosition(deltaPos){
+            const newPos = {x:position.x + deltaPos.x,y:position.y + deltaPos.y}
+            console.log('newPos', newPos)
+            setPosition(newPos)
+        }
+    }))
+
     useEffect(() => {
         if (dragging) {
             window.addEventListener('mousemove', handleMouseMove);
@@ -62,4 +70,5 @@ export default function DragnDrop({pos, x,y, children }) {
     )
 
 
-}
+});
+export default DragnDrop;

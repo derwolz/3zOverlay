@@ -1,7 +1,7 @@
 import './AddMenu.css';
-import GuiCreationButton from './GuiButtons/GuiButton';
-import { templates } from '../components/RightSideBar/templates';
-import DragnDrop from '../DragnDrop';
+import GuiCreationButton from '../GuiButtons/GuiButton';
+import { templates } from '../../DisplayElements/templates';
+import DragnDrop from '../../Utilities/DragnDrop.js/DragnDrop';
 export default function AddMenu( {pos,handleCloseMenu, handleAddElement}){
     function close(e){
         e.stopPropagation();

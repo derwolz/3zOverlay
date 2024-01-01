@@ -1,4 +1,4 @@
-import DragnDrop from "../../../DragnDrop"
+import DragnDrop from "../../Utilities/DragnDrop.js/DragnDrop"
 export default function TextDisplay( {pos, element} ){
 
 
