@@ -32,7 +32,7 @@ export default function ImagePlaceHolder({setImage}){
     }
 
     return (
-        <div className={'imagePlaceHolderContainer ' + dragState} onClick={handleClick} onDrop={(e)=>{handleDrop(e)}} onDragEnter={handleEnter} onDragLeave={handleLeave}>try here
+        <div className={'imagePlaceHolderContainer ' + dragState} onClick={handleClick} onDrop={(e)=>{handleDrop(e)}} onDragEnter={handleEnter} onDragLeave={handleLeave}>Drop Image here
             
         </div>
 

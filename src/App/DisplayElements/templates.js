@@ -3,7 +3,7 @@ import TextIcon from './icons/text.svg';
 import SlideShowIcon from './icons/slideshow.svg';
 import ListIcon from './icons/list.svg';
 const cssGroup = {
-    fontFamily:{type: 'DropDown', label: 'Font', value:'Sans Serif'},
+    fontFamily:{type: 'DropDown', label: 'Font', value:'Sans Serif', values:['Sans Serif']},
     fontSize:{type: 'TextInput',label:'Size', value:'12pt'},
     color:{type: 'ColorSelector',label:'color', value:'#000000'},
     backgroundColor: {type: 'ColorSelector', value:`rgba(0,0,0,0)`},
@@ -17,7 +17,7 @@ const textdisplay = {
     parentId : '',
     style:{backgroundColor:'white', color:'red'},
     gui: {
-        settings: {type: 'TextInput',label:'Text', value:''},
+        settings: {TextValue:{type: 'TextInput',label:'Text', value:''}},
         position: [ {type: 'NumberInput',label:'x', value: 0},
                     {type: 'NumberInput',label:'y', value: 0}],
         css: cssGroup, 

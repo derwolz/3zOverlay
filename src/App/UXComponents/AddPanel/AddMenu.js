@@ -17,7 +17,6 @@ export default function AddMenu( {pos,handleCloseMenu, handleAddElement}){
             {Object.keys(templates).map((elementname, key)=>{
                 return (<div key={key} onClick={(e)=>{addElement(elementname); close(e)}} ><GuiCreationButton close={close} text={elementname} image={templates[elementname].icon}/></div>)
             })}
-            <div className="border"/>
         </div>
         </DragnDrop>
     )

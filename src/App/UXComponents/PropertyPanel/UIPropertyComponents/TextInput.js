@@ -1,19 +1,19 @@
 
 import {useRef, useState} from 'react';
 
-export function TextInput({value, style, label}){
+export function TextInput({value,  label}){
     const inputRef =  useRef(null);
     const [val, setVal] = useState(value);
     function handleChange(e){
         setVal(e.target.value);
-        value = inputRef.current.innerHtml;
+        //value = inputRef.current.innerHtml;
     }
 
-
-    return(<div>
+    console.log(value, label)
+    return(<div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
         <label>{label}</label>
         
-        <input ref={inputRef} style={style} type='text' value={val} onChange={(e)=>handleChange(e)}/>
+        <input style={{backgroundColor:'var(--purple-lightest)', border:'solid 1px var(--purple-mid)', borderRadius:'3px', marginLeft:'6px'}} ref={inputRef}  type='text' value={val} onChange={(e)=>handleChange(e)}/>
         
     </div>
     )

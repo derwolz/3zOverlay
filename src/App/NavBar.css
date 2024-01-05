@@ -1,20 +1,12 @@
 .navBarBox {
     position:fixed;
-    background-color: #dadada;
-    color: white;
     top: 0;
     left: 0;
     width: 100vw;
     z-index: 999;
+    color: var(--blue-light);
 }
-.bottomBorder{
-    border-bottom: #3a3a3a solid 2px;
-    margin-top: 2px;
-    
-    filter: blur(.5px);
-    width: 100vw;
-    
-}
+
 .navPositioning {
     display: flex;
     width: 100vw;
@@ -22,10 +14,45 @@
     align-items: center;
     height: 100%;
 }
+
 .navOrder {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+.logo {
+
+}
+.menu {
+
+}
+.save-button {
+    background-color: rgba(8,30,51,.5);
+    color: rgba(51,212,217);
+    backdrop-filter: blur(10px);
+    border: var(--blue-light) 1px solid;
+    border-radius: 3px;
+    min-width:55px;
+    min-height: 35px;
+    font-size:large;
+    margin: 4px 4px;
+    box-shadow: inset 0px 0px 4px #000;
+
+}
+/* Animations */
+.nav-y-slide {
+animation: slide .3s ease-in;
+}
+@keyframes slide {
+    0% {transform: translateY(0);}
+    100% {transform: translatey(-100%);}
+}
+.nav-y-slide-reverse {
+    animation: slide-reverse .3s ease-in;
+}
+@keyframes slide-reverse {
+    0% {transform: translateY(-100%);}
+    100% {transform: translateY(0%);}
 }

@@ -1,0 +1,14 @@
+.gui-button {
+    background-color: rgba(14,67,97,.5);
+    backdrop-filter: blur(14px);
+    border: solid var(--blue-darker) 1px;
+    border-radius: 3px;
+    color: var(--blue-light);
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.gui-button img{
+    filter: invert(.9) sepia(100%) saturate(400%) hue-rotate(90deg) contrast(101%) brightness(110%);
+}
