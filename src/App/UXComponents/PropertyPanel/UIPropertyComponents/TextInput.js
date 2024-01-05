@@ -9,7 +9,6 @@ export function TextInput({value,  label}){
         //value = inputRef.current.innerHtml;
     }
 
-    console.log(value, label)
     return(<div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
         <label>{label}</label>
         

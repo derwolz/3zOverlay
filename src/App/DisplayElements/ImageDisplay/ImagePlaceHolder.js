@@ -18,10 +18,8 @@ export default function ImagePlaceHolder({setImage}){
         const file = e.dataTransfer.files[0]
         const image = URL.createObjectURL(file)
         setImage(image);
-        console.log(e);
     }
     function handleCapture(e){
-        console.log('drop captured')
     }
     function handleEnter(e){
         setDragState('drugOver');
