@@ -1,6 +1,6 @@
 
 import { useRef, useEffect, useState, forwardRef, useImperativeHandle } from "react";
-
+import { update } from "../EventUtils/EventUtils";
 
 const DragnDrop = forwardRef(({pos, x,y, children, saveCallback}, ref)=> {
     const dragRef = useRef(null);
@@ -36,6 +36,7 @@ const DragnDrop = forwardRef(({pos, x,y, children, saveCallback}, ref)=> {
 
     const handleMouseUp = (e) => {
         setDragging(false);
+        update();
     };
 
 

@@ -12,6 +12,13 @@
     --blue-rgb-light: rgb(51, 212, 217);
     --blue-rgb-lightest: rgb(71, 255, 255);
 
+    --blue-rgb-transparent-darkest: rgba(6, 12, 24,.5);
+    --blue-rgb-transparent-dark: rgba(8, 30, 51,.5);
+    --blue-rgb-transparent-mid: rgba(14, 67, 97,.5);
+    --blue-rgb-transparent-light: rgba(51, 212, 217,.5);
+    --blue-rgb-transparent-lightest: rgba(71, 255, 255,.5);
+    
+
 
     /* PurpleScale Colors */
     --purple-darkest: #300831;
@@ -25,5 +32,16 @@
     --purple-rgb-mid: rgb(145,48,118);
     --purple-rgb-light: rgb(170,61,118);
     --purple-rgb-lightest: rgb(255,141,239);
-}
 
+    --purple-rgb-transparent-darkest: rgba(30, 8, 31,.5);
+    --purple-rgb-transparent-dark: rgba(85,36,85,.5);
+    --purple-rgb-transparent-mid: rgba(145,48,118,.5);
+    --purple-rgb-transparent-light: rgba(170,61,118,.5);
+    --purple-rgb-transparent-lightest: rgba(255,141,239,.5);
+}
+body {
+  background-color:#191b26;
+  height:100vh;
+  width:100vw;
+  overflow: hidden;
+}

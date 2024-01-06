@@ -1,4 +1,5 @@
 import React, { useCallback, useState, useEffect} from 'react';
+import { update } from '../EventUtils/EventUtils';
 
 const Resizable = ({ children, showAnchor=true, startSize, saveCallback }) => {
   const [size, setSize] = useState(startSize);
@@ -14,6 +15,7 @@ const Resizable = ({ children, showAnchor=true, startSize, saveCallback }) => {
 
   const handleMouseUp = useCallback(() => {
     setIsResizing(false);
+    update();
   }, [handleMouseMove]);
 
   const handleMouseDown = useCallback((e) => {

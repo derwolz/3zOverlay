@@ -11,7 +11,7 @@ const cssGroup = {
 
 const textdisplay = {
     text: 'Text Display',
-    type:'TextDisplay',
+    type:'textdisplay',
     icon:TextIcon,
     pos : {x:0,y:0},
     parentId : '',
@@ -26,7 +26,7 @@ const textdisplay = {
 
 const imagedisplay = {
     
-    type : "Image Display",
+    type : "imagedisplay",
     url : "",
     icon:ImageIcon,
     pos : {x:0,y:0},

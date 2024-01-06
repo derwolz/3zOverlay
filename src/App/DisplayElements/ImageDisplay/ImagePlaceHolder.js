@@ -1,26 +1,32 @@
 
+import { update } from '../../Utilities/EventUtils/EventUtils'
 import './ImagePlaceHolder.css'
-import { useState } from 'react'
-export default function ImagePlaceHolder({setImage}){
+import { useState, useRef } from 'react'
+export default function ImagePlaceHolder({setImage, element}){
     const [dragState, setDragState] = useState()
+    const imageInputRef = useState(null)
     function handleClick(e){
-        //Stop propogation for now, but it needs to open the porperties dialog so a URL can be set.
-        //e.stopPropagation();
-        // introduce logic that allowss the upload and reading and validation of an image file. via a URL
-        // allow for drag and drop functionality on an image display
-
+        imageInputRef.current.click();
     }
-    function sendImage(){
 
+
+    function captureFileChange(e){
+        if (e.target.files && e.target.files[0]){
+            const imgFile = e.target.files[0];
+            const imageURL = URL.createObjectURL(imgFile);
+            setImage(imageURL);
+            update();
+        }
     }
+
     function handleDrop(e){
         console.log('drop handled')
         const file = e.dataTransfer.files[0]
         const image = URL.createObjectURL(file)
         setImage(image);
+        update();
     }
-    function handleCapture(e){
-    }
+
     function handleEnter(e){
         setDragState('drugOver');
         e.preventDefault();
@@ -31,7 +37,7 @@ export default function ImagePlaceHolder({setImage}){
 
     return (
         <div className={'imagePlaceHolderContainer ' + dragState} onClick={handleClick} onDrop={(e)=>{handleDrop(e)}} onDragEnter={handleEnter} onDragLeave={handleLeave}>Drop Image here
-            
+            <input type='file' accept="image/*" style={{display:'none'}} ref={imageInputRef} onChange={captureFileChange}/>
         </div>
 
     )

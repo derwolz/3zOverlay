@@ -6,7 +6,7 @@ import { WorkBench } from './App/WorkBench.js';
 function App() {
   return (
     <div className="" onDrop={(e)=>{e.stopPropagation(); e.preventDefault();}}>
-      <header className="" style={{backgroundColor:'black', height:'100vh'}}>
+      <header className="">
         <WorkbenchProvider>
       <Navbar/>
       <WorkBench/>
