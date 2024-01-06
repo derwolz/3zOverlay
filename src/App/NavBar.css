@@ -29,7 +29,7 @@
 
 }
 .save-button {
-    background-color: rgba(8,30,51,.5);
+    background-color: var(--blue-rgb-transparent-dark);
     color: rgba(51,212,217);
     backdrop-filter: blur(10px);
     border: var(--blue-light) 1px solid;
@@ -40,6 +40,10 @@
     margin: 4px 4px;
     box-shadow: inset 0px 0px 4px #000;
 
+}
+.save-button:hover{
+    cursor: pointer;
+    background-color: var(--blue-rgb-transparent-mid)
 }
 /* Animations */
 .nav-y-slide {

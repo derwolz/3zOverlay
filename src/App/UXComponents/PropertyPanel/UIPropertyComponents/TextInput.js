@@ -1,15 +1,16 @@
 
 import {useRef, useState} from 'react';
+import { update } from '../../../Utilities/EventUtils/EventUtils';
 
 export function TextInput({value,  label}){
     const inputRef =  useRef(null);
     const [val, setVal] = useState(value);
     function handleChange(e){
         setVal(e.target.value);
+        update();
         //value = inputRef.current.innerHtml;
     }
 
-    console.log(value, label)
     return(<div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
         <label>{label}</label>
         

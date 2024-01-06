@@ -16,7 +16,6 @@ export function Properties({ selectedElement={gui:''} }) {
     const renderComponent = (item, key) => {
         const Component = components[item.type];
         if (!Component) return null;
-        console.log(item);
         
         return <div style={{margin: '2.5px 0px'}}><Component  key={key} value={item.value} values={item.values} style={item.style} label={item.label} element={item}/></div>;
     };

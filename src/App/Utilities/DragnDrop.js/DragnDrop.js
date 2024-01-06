@@ -1,8 +1,8 @@
 
 import { useRef, useEffect, useState, forwardRef, useImperativeHandle } from "react";
+import { update } from "../EventUtils/EventUtils";
 
-
-const DragnDrop = forwardRef(({pos, x,y, children, createOffset}, ref)=> {
+const DragnDrop = forwardRef(({pos, x,y, children, saveCallback}, ref)=> {
     const dragRef = useRef(null);
 
 
@@ -22,24 +22,23 @@ const DragnDrop = forwardRef(({pos, x,y, children, createOffset}, ref)=> {
     const handleMouseMove = (e) => {
         e.preventDefault()
         if (dragging) {
-            setPosition({
+            const pos = {
                 x: e.clientX - offset.x,
                 y: e.clientY - offset.y,
-            });
+            }
+            setPosition(pos);
+            if (saveCallback){
+                saveCallback(pos);
+            }
+            
         }
     };
 
     const handleMouseUp = (e) => {
         setDragging(false);
+        update();
     };
 
-    useImperativeHandle(ref, ()=>({
-        shiftPosition(deltaPos){
-            const newPos = {x:position.x + deltaPos.x,y:position.y + deltaPos.y}
-            console.log('newPos', newPos)
-            setPosition(newPos)
-        }
-    }))
 
     useEffect(() => {
         if (dragging) {
